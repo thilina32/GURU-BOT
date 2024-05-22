@@ -58,7 +58,9 @@ import readline from 'readline'
 dotenv.config()
 
 async function main() {
-  const txt = process.env.SESSION_ID
+  
+  //const txt = process.env.SESSION_ID
+  const txt ='GuruBot~gBGNQbpb'
 
   if (!txt) {
     console.error('Environment variable not found.')
@@ -166,12 +168,7 @@ global.timestamp = {
 const __dirname = global.__dirname(import.meta.url)
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 global.prefix = new RegExp(
-  '^[' +
-    (process.env.PREFIX || '*/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-.@').replace(
-      /[|\\{}()[\]^$+*?.\-\^]/g,
-      '\\$&'
-    ) +
-    ']'
+  '[!,.]'
 )
 global.opts['db'] = process.env.DATABASE_URL
 
@@ -374,7 +371,7 @@ async function connectionUpdate(update) {
   if (connection === 'open') {
     const { jid, name } = conn.user
 
-    let msgf = `Hai🤩${name} Congrats you have successfully deployed GURU-BOT\nJoin my support Group for any Query\n https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
+    let msgf = `Hai🤩${name} Congrats you have successfully deployed dishu-md`
 
     let gmes = conn.sendMessage(
       jid,

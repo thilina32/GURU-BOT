@@ -60,7 +60,7 @@ dotenv.config()
 async function main() {
   
   //const txt = process.env.SESSION_ID
-  const txt ='GuruBot~gBGNQbpb'
+  const txt ='GuruBot~w5kkaTCA'
 
   if (!txt) {
     console.error('Environment variable not found.')

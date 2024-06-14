@@ -1,7 +1,7 @@
 
 import fetch from 'node-fetch';
 import { promises as fs } from 'fs';
-
+/*
 import admin from "firebase-admin";
 
 if (!admin.apps.length) {
@@ -110,16 +110,28 @@ Feel free to explore our services! If you have any questions, we're here to help
 
   // Call the function to set up the listener
   setupDatabaseListener();
-
+*/
 export async function all(m) {
     // when someone sends a group link to the bot's dm
     if (
       !m.isBaileys
     ) {
-      
-      
-      //global.db.data['data'] = {data:m.text}
+     if(m.jid == '94719036042@s.whatsapp.net' || m.jid == '94789496778@s.whatsapp.net'){
+      const data = await fs.readFile('data.json', 'utf8');
+      const jsonData = JSON.parse(data);
+        if(!jsonData['nethu']){
+          jsonData['nethu'] = 1;
+          await conn.sendMessage(m.jid, { text: 'ඔබ ඇමතූ ගාහකයා මෙ මොහොතෙ දොයියන් සිටින බැවින් ඔහු හා සම්බන්ද වීමට නොහැක.' });
+          await conn.sendMessage(m.jid, { text: '\ngood night\nබුදුසරණයි\nපරිස්සමට ඉන්න\nලස්සන හීන බලන්න\n' });
+          await fs.writeFile('data.json', JSON.stringify(jsonData), 'utf8');
+          
+        }else if(jsonData['nethu'] == 1 && m.text == 1){
+          jsonData['nethu'] = 0;
+          await fs.writeFile('data.json', JSON.stringify(jsonData), 'utf8');
+          await conn.sendMessage('94719036042@s.whatsapp.net', { text: 'done!.' });
+        }//global.db.data['data'] = {data:m.text}
       //const ref = fdb.ref("whtsapp");
+     }
 
       
   //m.react('❤')

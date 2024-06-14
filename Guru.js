@@ -382,7 +382,7 @@ async function connectionUpdate(update) {
         quoted: null,
       }
     )
-
+    conn.sendPresenceUpdate("unavailable");
     conn.logger.info(chalk.yellow('\n🚩 R E A D Y'))
   }
 
